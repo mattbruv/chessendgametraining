@@ -47,6 +47,7 @@ class PositionController extends BaseController {
   private askingForHint = Alpine.reactive({ value: false });
   private solving = Alpine.reactive({ value: false });
   private solvingTrivial = false;
+  private rememberTrivialSelection = false;
   private assistanceUsed = false;
   private trivialPositionInvitationShown = false;
   private mateDistance = 0;
@@ -962,16 +963,37 @@ class PositionController extends BaseController {
     const alert = await alertController.create({
       header: window.AlpineI18n.t('position.confirm-trivial-position.header'),
       message: window.AlpineI18n.t('position.confirm-trivial-position.message'),
+      inputs: [
+        {
+          type: "checkbox",
+          label: window.AlpineI18n.t('position.confirm-trivial-position.remember'),
+          handler: (data) => {
+            this.rememberTrivialSelection = data.checked ?? false
+          }
+        }
+      ],
       buttons: [
         {
           text: window.AlpineI18n.t('position.confirm-trivial-position.no'),
           role: 'cancel',
           cssClass: 'overlay-button',
-          handler: () => onNoClick()
+          handler: async () => {
+            if (this.rememberTrivialSelection) {
+              configurationService.configuration.solveTrivialPosition = false;
+              await configurationService.save();
+            }
+            onNoClick()
+          }
         }, {
           text: window.AlpineI18n.t('position.confirm-trivial-position.yes'),
           cssClass: 'overlay-button',
-          handler: () => onYesClick()
+          handler: async () => {
+            if (this.rememberTrivialSelection) {
+              configurationService.configuration.solveTrivialPosition = true;
+              await configurationService.save();
+            }
+            onYesClick()
+          }
         }
       ]
     });

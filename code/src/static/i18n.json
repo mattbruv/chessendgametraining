@@ -116,6 +116,7 @@
             "confirm-trivial-position": {
                 "header": "Attention",
                 "message": "You have reached a trivial position. Do you want to solve the rest automatically?",
+                "remember": "Remember my choice",
                 "no": "No",
                 "yes": "Yes"
             },
@@ -320,6 +321,7 @@
             "confirm-trivial-position": {
                 "header": "Atención",
                 "message": "Ha llegado a una posición trivial. ¿Quiere resolver el resto automáticamente?",
+                "remember": "Recuerda mi elección",
                 "no": "No",
                 "yes": "Sí"
             },
@@ -523,6 +525,7 @@
             "confirm-trivial-position": {
                 "header": "Внимание",
                 "message": "Вы достигли тривиальной позиции. Хотите решить остальное автоматически?",
+                "remember": "Помните мой выбор",
                 "no": "Нет",
                 "yes": "Да"
             },
