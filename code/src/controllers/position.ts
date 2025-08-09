@@ -806,11 +806,12 @@ class PositionController extends BaseController {
     if (!this.checkEnding()) {
       soundService.playAudio('move');
       const isTrivial = this.isTrivialPosition();
-      if (isTrivial && configurationService.configuration.solveTrivialPosition) {
+      const autoSolve = configurationService.configuration.solveTrivialPosition;
+      if (isTrivial && autoSolve) {
         this.solveTrivialPosition();
       }
-      else if (!this.trivialPositionInvitationShown && isTrivial) {
-        await this.showTrivialPositionAlert(nextMove, this.solveTrivialPosition);
+      else if (isTrivial && autoSolve === null && !this.trivialPositionInvitationShown) {
+        await this.showTrivialPositionAlert(() => nextMove(), () => this.solveTrivialPosition());
       } else {
         nextMove();
       }
@@ -970,7 +971,7 @@ class PositionController extends BaseController {
         }, {
           text: window.AlpineI18n.t('position.confirm-trivial-position.yes'),
           cssClass: 'overlay-button',
-          handler: () => onYesClick() 
+          handler: () => onYesClick()
         }
       ]
     });
@@ -1009,10 +1010,16 @@ class PositionController extends BaseController {
     });
     if (!ended) {
       soundService.playAudio('move');
+      const isTrivial = this.isTrivialPosition();
+      const autoSolve = configurationService.configuration.solveTrivialPosition;
       if (this.solving.value) {
         this.getOpponentMove();
-      } else if (!this.trivialPositionInvitationShown && this.isTrivialPosition()) {
-        await this.showTrivialPositionAlert(() => {}, this.solveTrivialPosition);
+      } 
+      else if (isTrivial && autoSolve) {
+        this.solveTrivialPosition();
+      }
+      else if (isTrivial && autoSolve === null && !this.trivialPositionInvitationShown) {
+        await this.showTrivialPositionAlert(() => {}, () => this.solveTrivialPosition());
       } else if (this.mateDistance != 0) {
         if (this.player.value == 'w' && this.mateDistance > 0 || this.player.value == 'b' && this.mateDistance < 0) {
           toastController.create({
