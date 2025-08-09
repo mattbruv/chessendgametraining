@@ -161,6 +161,12 @@
             "threefold-repetition-check": "Threefold repetition check",
             "stockfish-depth": "Depth",
             "stockfish-movetime": "Move time",
+            "auto-solve-trivial": {
+                "title": "Auto solve trivial positions",
+                "prompt": "Prompt Me",
+                "no": "No",
+                "yes": "Yes"
+            },
             "clean-dialog" : {
                 "title": "Are you sure?",
                 "subtitle": "Reset records",

@@ -187,6 +187,12 @@ class SettingsController extends BaseController {
                 
                 const toggleGotoFirstPosition = document.getElementById('toggleGotoFirstPosition') as IonToggle;
                 toggleGotoFirstPosition.addEventListener('ionChange', () => { this.gotoFirstPositionChanged(toggleGotoFirstPosition.checked); });
+
+                const autoSolveTrivial = document.getElementById('autoSolveTrivial') as HTMLIonSelectElement;
+                autoSolveTrivial.addEventListener('ionChange', () => { 
+                    console.log("FUCK???")
+                    // this.gotoFirstPositionChanged(toggleGotoFirstPosition.checked);
+                });
                 
                 const toggleGotoNextPosition = document.getElementById('toggleGotoNextPosition') as IonToggle;
                 toggleGotoNextPosition.addEventListener('ionChange', () => { this.gotoNextPositionChanged(toggleGotoNextPosition.checked); });
