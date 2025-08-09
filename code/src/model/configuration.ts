@@ -41,6 +41,7 @@ export class Configuration {
             stockfishMovetime: this._stockfishMovetime,
             automaticShowFirstPosition: this._automaticShowFirstPosition,
             automaticShowNextPosition: this._automaticShowNextPosition,
+            solveTrivialPosition: this._solveTrivialPosition,
             preventScreenOff: this._preventScreenOff,
             colorTheme: this._colorTheme,
             playSounds: this._playSounds,
