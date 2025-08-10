@@ -373,7 +373,7 @@
             "stockfish-depth": "Profundidad",
             "stockfish-movetime": "Tiempo",
             "auto-solve-trivial": {
-                "title": "Resuelve posiciones triviales",
+                "title": "Resolver automáticamente posiciones triviales",
                 "prompt": "Pregúntame",
                 "no": "No",
                 "yes": "Sí"
@@ -584,7 +584,7 @@
             "stockfish-movetime": "Переместить время",
             "auto-solve-trivial": {
                 "title": "Автоматическое решение тривиальных задач",
-                "prompt": "Подскажите мне",
+                "prompt": "Спросите меня",
                 "no": "Нет",
                 "yes": "Да"
             },
