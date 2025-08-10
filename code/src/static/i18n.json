@@ -372,6 +372,12 @@
             "threefold-repetition-check": "Comprobar triple repetición",
             "stockfish-depth": "Profundidad",
             "stockfish-movetime": "Tiempo",
+            "auto-solve-trivial": {
+                "title": "Resuelve posiciones triviales",
+                "prompt": "Pregúntame",
+                "no": "No",
+                "yes": "Sí"
+            },
             "clean-dialog" : {
                 "title": "¿Está seguro?",
                 "subtitle": "Eliminar records",
@@ -576,6 +582,12 @@
             "threefold-repetition-check": "Тройная повторная проверка",
             "stockfish-depth": "Глубина",
             "stockfish-movetime": "Переместить время",
+            "auto-solve-trivial": {
+                "title": "Автоматическое решение тривиальных задач",
+                "prompt": "Подскажите мне",
+                "no": "Нет",
+                "yes": "Да"
+            },
             "clean-dialog" : {
                 "title": "Вы уверены?",
                 "subtitle": "Сбросить записи",
